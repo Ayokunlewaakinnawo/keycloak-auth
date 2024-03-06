@@ -27,5 +27,5 @@ services:
 
 networks:
   default:
-    external: true
+    #external: true
     name: postgresql-service_default
