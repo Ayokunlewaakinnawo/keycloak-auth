@@ -1,7 +1,7 @@
-# Vox-Authentication-Service
+# Authentication-Service
 
 ### **Prerequisite**
-Ensure this; https://github.com/vox-technologies/Vox-Postgresql-Service is already setup and running.
+Ensure this; is already setup and running.
 
 ### VARIABLES
 The file `.env-example` contains all the dynamic variables.
