@@ -23,9 +23,9 @@ services:
     networks:
       - default
     ports:
-      - 8082:8080
+      - 8080:8080
 
 networks:
   default:
-    #external: true
+    external: true
     name: postgresql-service_default
