@@ -7,11 +7,11 @@ services:
     restart: unless-stopped
     entrypoint: /opt/keycloak/bin/kc.sh start --proxy edge --hostname-strict-https=false
     environment:
-      PROXY_ADDRESS_FORWARDING: true
-      KC_HOSTNAME_STRICT: false
-      KC_HTTP_ENABLED: true
+      PROXY_ADDRESS_FORWARDING: "true"
+      KC_HOSTNAME_STRICT: "false"
+      KC_HTTP_ENABLED: "true"
       KC_PROXY: edge
-      KC_METRICS_ENABLED: true
+      KC_METRICS_ENABLED: "true"
       KC_DB: postgres
       KC_DB_URL_HOST: keycloak_postgres    # Hostname of the PostgreSQL container
       KC_DB_URL_PORT: 5432                 # Port on which PostgreSQL is running
