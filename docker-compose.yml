@@ -5,13 +5,12 @@ services:
     image: quay.io/keycloak/keycloak:latest
     container_name: keycloak
     restart: unless-stopped
-    entrypoint: /opt/keycloak/bin/kc.sh start --proxy edge --hostname-strict-https=false
+    entrypoint: /opt/keycloak/bin/kc.sh start #--proxy edge --hostname-strict-https=false
     environment:
-      PROXY_ADDRESS_FORWARDING: "true"
-      KC_HOSTNAME_STRICT: "false"
-      KC_HTTP_ENABLED: "true"
-      KC_PROXY: edge
-      KC_METRICS_ENABLED: "true"
+      PROXY_ADDRESS_FORWARDING: true
+      KC_HOSTNAME_STRICT: false
+      KC_PROXY: edge 
+      KC_METRICS_ENABLED: true
       KC_DB: postgres
       KC_DB_URL_HOST: keycloak_postgres    # Hostname of the PostgreSQL container
       KC_DB_URL_PORT: 5432                 # Port on which PostgreSQL is running
@@ -20,6 +19,7 @@ services:
       KC_DB_PASSWORD: ${POSTGRESQL_PASSWORD}  # Password to connect to the database
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USERNAME}   # Keycloak admin username
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}  # Keycloak admin password
+      
     networks:
       - default
     ports:
@@ -28,4 +28,4 @@ services:
 networks:
   default:
     external: true
-    name: posgresql-keycloak_default
+    name: postgresql-keycloak_default
